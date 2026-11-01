@@ -15,36 +15,44 @@ interface GalleryItem {
 
 const GALLERY_ITEMS: GalleryItem[] = [
   {
+    id: "v1",
+    type: "video",
+    src: "/gallery/video-lapangan-1.mp4",
+    title: "Operasional Muat & Evakuasi Barang Kantor",
+    description: "Aktivitas pengangkutan dan penataan material aset kantor ke armada kendaraan di area Jakarta Selatan.",
+    tag: "Video Evakuasi 1",
+  },
+  {
+    id: "v2",
+    type: "video",
+    src: "/gallery/video-lapangan-2.mp4",
+    title: "Proses Pengikatan & Keamanan Muatan",
+    description: "Pemeriksaan ikatan tali dan pengamanan material muatan sebelum armada berangkat menuju gudang penampungan.",
+    tag: "Video Evakuasi 2",
+  },
+  {
+    id: "v3",
+    type: "video",
+    src: "/gallery/video-lapangan-3.mp4",
+    title: "Pengecekan Akhir Armada Angkut",
+    description: "Inspeksi fisik dan kesiapan armada pikap operasional HTJ di lokasi proyek.",
+    tag: "Video Evakuasi 3",
+  },
+  {
     id: "g1",
     type: "image",
     src: "/gallery/dokumentasi-1.jpg",
-    title: "Pengangkutan & Evakuasi Muatan Aset Kantor",
-    description: "Armada operasional HTJ proses muat dan pengikatan aman di area Jakarta Selatan.",
-    tag: "Evakuasi & Angkut",
+    title: "Armada Pikap Muatan Aset Penuh",
+    description: "Dokumentasi armada pikap Gran Max dengan muatan tumpukan material dan papan kayu siap kirim.",
+    tag: "Foto Armada 1",
   },
   {
     id: "g2",
     type: "image",
-    src: "",
-    title: "Penimbangan Limbah Besi & Logam Industri",
-    description: "Proses verifikasi jembatan timbang resmi akurat dan transparan.",
-    tag: "Timbang Logam",
-  },
-  {
-    id: "g3",
-    type: "video",
-    src: "",
-    title: "Dokumentasi Video Lapangan Operasional",
-    description: "Mobilisasi tim dan peralatan evakuasi di lokasi mitra korporasi.",
-    tag: "Video Lapangan",
-  },
-  {
-    id: "g4",
-    type: "image",
-    src: "",
-    title: "Pembongkaran & Pembersihan Site Pergudangan",
-    description: "Pelepasan konstruksi baja dan material scrap industri siap angkut.",
-    tag: "Bongkaran Gudang",
+    src: "/gallery/dokumentasi-2.jpg",
+    title: "Pemberangkatan Armada Malam Hari",
+    description: "Proses evakuasi dan pengangkutan aset mitra korporasi yang terlaksana secara tertib dan aman.",
+    tag: "Foto Armada 2",
   },
 ];
 
@@ -80,18 +88,7 @@ export function Gallery() {
                   : "bg-slate-100 text-slate-600 hover:bg-slate-200"
               }`}
             >
-              Semua Dokumentasi
-            </button>
-            <button
-              onClick={() => setFilter("image")}
-              className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
-                filter === "image"
-                  ? "bg-slate-900 text-white shadow-sm"
-                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
-              }`}
-            >
-              <ImageIcon className="size-4" />
-              <span>Foto Kegiatan</span>
+              Semua ({GALLERY_ITEMS.length})
             </button>
             <button
               onClick={() => setFilter("video")}
@@ -102,13 +99,24 @@ export function Gallery() {
               }`}
             >
               <Video className="size-4" />
-              <span>Video Lapangan</span>
+              <span>Video Lapangan (3)</span>
+            </button>
+            <button
+              onClick={() => setFilter("image")}
+              className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all ${
+                filter === "image"
+                  ? "bg-slate-900 text-white shadow-sm"
+                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+              }`}
+            >
+              <ImageIcon className="size-4" />
+              <span>Foto Kegiatan (2)</span>
             </button>
           </div>
         </div>
 
         {/* Gallery Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredItems.map((item) => {
             const hasMedia = Boolean(item.src);
 
@@ -118,45 +126,28 @@ export function Gallery() {
                 className="group bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-orange-500/50 transition-all duration-300 flex flex-col justify-between"
               >
                 <div className="relative aspect-video w-full overflow-hidden bg-slate-900">
-                  {hasMedia ? (
-                    item.type === "video" ? (
-                      <video
-                        src={item.src}
-                        controls
-                        playsInline
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="relative w-full h-full">
-                        <Image
-                          src={item.src}
-                          alt={item.title}
-                          fill
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        />
-                      </div>
-                    )
+                  {item.type === "video" ? (
+                    <video
+                      src={item.src}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      className="w-full h-full object-cover"
+                    />
                   ) : (
-                    <div className="placeholder-pattern w-full h-full border-2 border-dashed border-slate-300 flex flex-col items-center justify-center p-6 text-center text-slate-400">
-                      <div className="w-14 h-14 rounded-full bg-white shadow-xs flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
-                        {item.type === "video" ? (
-                          <Video className="size-7 text-slate-400 group-hover:text-orange-500 transition-colors" />
-                        ) : (
-                          <ImageIcon className="size-7 text-slate-400 group-hover:text-orange-500 transition-colors" />
-                        )}
-                      </div>
-                      <span className="font-semibold text-slate-600 text-xs sm:text-sm">
-                        {item.type === "video" ? "Slot Video Dokumentasi" : "Slot Foto Dokumentasi"}
-                      </span>
-                      <span className="text-[11px] text-slate-400 mt-0.5">
-                        Siap diupdate dengan file dokumentasi berikutnya
-                      </span>
+                    <div className="relative w-full h-full">
+                      <Image
+                        src={item.src}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
                     </div>
                   )}
 
                   {/* Badge */}
-                  <span className="absolute top-3 left-3 px-3 py-1 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-semibold rounded-md border border-white/10 shadow-sm flex items-center gap-1.5">
+                  <span className="absolute top-3 left-3 px-3 py-1 bg-slate-900/80 backdrop-blur-xs text-white text-[11px] font-semibold rounded-md border border-white/10 shadow-sm flex items-center gap-1.5 pointer-events-none">
                     {item.type === "video" ? (
                       <>
                         <Play className="size-3 text-orange-400 fill-orange-400" />
