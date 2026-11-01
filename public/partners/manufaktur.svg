@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="none"/>
+  <!-- Industrial Cog Icon -->
+  <g fill="#0f172a" transform="translate(20, 20)">
+    <path d="M40,10 L48,10 L50,18 C53,19 56,21 58,23 L66,20 L71,27 L65,33 C66,35 66,37 66,40 C66,43 66,45 65,47 L71,53 L66,60 L58,57 C56,59 53,61 50,62 L48,70 L40,70 L38,62 C35,61 32,59 30,57 L22,60 L17,53 L23,47 C22,45 22,43 22,40 C22,37 22,35 23,33 L17,27 L22,20 L30,23 C32,21 35,19 38,18 Z" fill="#0f172a"/>
+    <circle cx="44" cy="40" r="14" fill="#ffffff"/>
+    <circle cx="44" cy="40" r="8" fill="#f97316"/>
+  </g>
+  <!-- Text Brand -->
+  <text x="120" y="52" font-family="Inter, system-ui, sans-serif" font-weight="900" font-size="24" fill="#0f172a" letter-spacing="1">
+    MANUFAKTUR
+  </text>
+  <text x="120" y="75" font-family="Inter, system-ui, sans-serif" font-weight="600" font-size="12" fill="#64748b" letter-spacing="2">
+    INDONESIA B2B
+  </text>
+</svg>

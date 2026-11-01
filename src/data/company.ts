@@ -9,7 +9,8 @@ export interface Service {
 
 export interface ClientPartner {
   name: string;
-  category: "Perbankan" | "Hospitality" | "Institusi / Asing" | "Pendidikan";
+  category: "Perbankan" | "Hospitality" | "Institusi / Asing" | "Pendidikan" | "Manufaktur";
+  logo: string;
 }
 
 export const COMPANY_INFO = {
@@ -79,15 +80,16 @@ export const SERVICES: Service[] = [
 ];
 
 export const CLIENT_PARTNERS: ClientPartner[] = [
-  { name: "Bank Indonesia", category: "Perbankan" },
-  { name: "Bank Mandiri", category: "Perbankan" },
-  { name: "Bank BNI", category: "Perbankan" },
-  { name: "Bank Danamon", category: "Perbankan" },
-  { name: "Bank Permata", category: "Perbankan" },
-  { name: "Hotel Mercure", category: "Hospitality" },
-  { name: "PT Aston International", category: "Hospitality" },
-  { name: "Universitas Pelita Harapan (UPH)", category: "Pendidikan" },
-  { name: "Kedutaan Besar Singapura", category: "Institusi / Asing" },
+  { name: "Bank Indonesia", category: "Perbankan", logo: "/partners/bi.svg" },
+  { name: "Bank Mandiri", category: "Perbankan", logo: "/partners/bank-mandiri.svg" },
+  { name: "Bank BNI", category: "Perbankan", logo: "/partners/bni.svg" },
+  { name: "Bank Danamon", category: "Perbankan", logo: "/partners/bank-danamon.svg" },
+  { name: "Bank Permata", category: "Perbankan", logo: "/partners/bank-permata.svg" },
+  { name: "Hotel Mercure", category: "Hospitality", logo: "/partners/mercure.svg" },
+  { name: "PT Aston International", category: "Hospitality", logo: "/partners/aston.png" },
+  { name: "Universitas Pelita Harapan (UPH)", category: "Pendidikan", logo: "/partners/uph.png" },
+  { name: "Kedutaan Besar Singapura", category: "Institusi / Asing", logo: "/partners/singapore-embassy.svg" },
+  { name: "Korporasi Manufaktur", category: "Manufaktur", logo: "/partners/manufaktur.svg" },
 ];
 
 export const COMPANY_STATS = [

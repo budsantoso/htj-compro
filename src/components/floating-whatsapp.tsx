@@ -11,17 +11,17 @@ export function FloatingWhatsApp() {
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Hubungi Bapak Hartono via WhatsApp"
-        className="group relative flex items-center justify-center p-4 rounded-full bg-orange-500 text-white shadow-2xl hover:bg-orange-600 hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-orange-500/40"
+        className="group relative flex items-center justify-center p-4 rounded-full bg-[#25D366] text-white shadow-2xl hover:bg-[#20bd5c] hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-[#25D366]/40"
       >
         <MessageCircle className="size-7" />
 
         {/* Pulse aura */}
-        <span className="absolute -inset-1 rounded-full bg-orange-500/30 animate-ping -z-10" />
+        <span className="absolute -inset-1 rounded-full bg-[#25D366]/30 animate-ping -z-10" />
 
         {/* Desktop Tooltip */}
         <span className="absolute right-full mr-3.5 px-3.5 py-1.5 rounded-xl bg-slate-900 text-white text-xs font-semibold whitespace-nowrap shadow-xl border border-slate-800 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none hidden md:flex items-center gap-1.5">
           <span>Chat WhatsApp Pak Hartono</span>
-          <span className="text-[10px] text-orange-400 font-mono">• Online</span>
+          <span className="text-[10px] text-[#25D366] font-mono">• Online</span>
         </span>
       </a>
     </aside>
