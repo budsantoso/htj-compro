@@ -1,96 +1,62 @@
 "use client";
 
-import { Calendar, User, MapPin, CheckCircle, Scale, ShieldCheck, ArrowRight } from "lucide-react";
+import { CalendarCheck, UserCheck, MapPin } from "lucide-react";
 import { COMPANY_INFO } from "@/data/company";
 
 export function About() {
   return (
-    <section id="tentang" className="py-24 bg-card/60 relative overflow-hidden border-t border-border/80">
+    <section id="tentang" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          {/* Left Text */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#D33633]/30 bg-[#D33633]/10 px-3.5 py-1 text-xs font-bold text-[#D33633]">
-              <span>TENTANG PERUSAHAAN</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <div>
+            <div className="inline-block px-3 py-1 bg-orange-500/10 text-orange-600 font-semibold rounded-full text-sm mb-4">
+              Tentang Perusahaan
             </div>
-
-            <h2 className="font-heading text-3xl sm:text-4xl font-black text-foreground tracking-tight leading-tight">
-              Mitra Strategis & Terpercaya Pengelolaan Aset Non-Produktif Perusahaan
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6 tracking-tight">
+              Mitra Terpercaya Pengelolaan Aset & Limbah
             </h2>
-
-            <div className="space-y-4 text-xs sm:text-sm text-muted-foreground leading-relaxed">
-              <p>
-                <strong>CV Harto Jaya Makmur Abadi</strong> adalah entitas usaha nasional yang bergerak secara terintegrasi
-                dalam bidang penerimaan dan pembelian limbah besi, sisa material logam manufaktur, mesin pabrik bekas,
-                alat berat konstruksi, hingga aset hasil lelang resmi institusi korporasi.
-              </p>
-              <p>
-                Didirikan sejak tahun <strong>2005</strong> di bawah kepemimpinan langsung <strong>Bapak Hartono</strong>,
-                kami telah menorehkan rekam jejak integritas tinggi bersama berbagai institusi perbankan besar (Bank Indonesia, Mandiri, BNI, Danamon, Permata),
-                jaringan hotel bertaraf internasional (Aston, Mercure), lembaga pendidikan (UPH), hingga instansi perwakilan negara sahabat (Kedutaan Besar Singapura).
-              </p>
-              <p>
-                Dengan kesiapan modal likuid, sistem penimbangan transparan, armada penjemputan mandiri, dan legalitas berita acara serah terima
-                yang tertib, kami menjamin seluruh proses likuidasi aset Anda berjalan aman, profesional, dan menguntungkan.
-              </p>
-            </div>
-
-            {/* Guarantees */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
-              <div className="flex items-center gap-2 p-3 rounded-xl bg-background border border-border">
-                <Scale className="size-4 text-[#6BA4E8] shrink-0" />
-                <span className="text-xs font-semibold text-foreground">Timbangan Transparan</span>
-              </div>
-              <div className="flex items-center gap-2 p-3 rounded-xl bg-background border border-border">
-                <ShieldCheck className="size-4 text-[#D33633] shrink-0" />
-                <span className="text-xs font-semibold text-foreground">Legalitas Berita Acara</span>
-              </div>
-              <div className="flex items-center gap-2 p-3 rounded-xl bg-background border border-border">
-                <CheckCircle className="size-4 text-[#25D366] shrink-0" />
-                <span className="text-xs font-semibold text-foreground">Pembayaran Cepat</span>
-              </div>
-            </div>
+            <p className="text-slate-600 leading-relaxed mb-6 text-justify text-sm sm:text-base">
+              CV Harto Jaya Makmur Abadi adalah perusahaan yang bergerak di bidang pembelian dan penerimaan limbah besi serta aset bekas perusahaan, termasuk hasil lelang aset korporasi, mesin bekas, dan alat berat bekas.
+            </p>
+            <p className="text-slate-600 leading-relaxed mb-6 text-justify text-sm sm:text-base">
+              Berdiri sejak tahun 2005 di bawah pimpinan Bapak Hartono, perusahaan ini telah membangun kepercayaan dari berbagai institusi perbankan, korporasi, hotel, dan lembaga pemerintahan maupun asing dalam proses pengadaan dan pembelian aset non-produktif secara profesional, transparan, dan sesuai prosedur.
+            </p>
+            <p className="text-slate-600 leading-relaxed font-medium text-sm sm:text-base">
+              Dengan cakupan layanan yang menjangkau seluruh wilayah Indonesia, CV Harto Jaya Makmur Abadi hadir sebagai mitra terpercaya.
+            </p>
           </div>
 
-          {/* Right Highlights Cards */}
-          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-            <div className="p-6 rounded-2xl bg-background border border-border/80 shadow-md flex items-start gap-4 hover:border-[#6BA4E8]/50 transition-colors">
-              <div className="p-3 rounded-xl bg-[#0b0f19] text-[#6BA4E8] border border-border shrink-0">
-                <Calendar className="size-6" />
+          {/* Stat Boxes */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-xs flex flex-col items-center text-center hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-slate-900 text-white rounded-lg flex items-center justify-center text-2xl mb-4 shadow-inner">
+                <CalendarCheck className="size-7 text-white" />
               </div>
-              <div>
-                <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Sejarah Pendirian</span>
-                <h3 className="font-heading font-black text-2xl text-foreground mt-0.5">Tahun 2005</h3>
-                <p className="text-xs text-muted-foreground mt-1">
-                  Konsisten melayani transaksi lelang & scrap industri selama lebih dari 2 dekade.
-                </p>
-              </div>
+              <h3 className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-1">
+                Tahun Berdiri
+              </h3>
+              <p className="text-2xl font-bold text-slate-900">2005</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-background border border-border/80 shadow-md flex items-start gap-4 hover:border-[#D33633]/50 transition-colors">
-              <div className="p-3 rounded-xl bg-[#0b0f19] text-[#D33633] border border-border shrink-0">
-                <User className="size-6" />
+            <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-xs flex flex-col items-center text-center hover:shadow-md transition-shadow">
+              <div className="w-14 h-14 bg-orange-500 text-white rounded-lg flex items-center justify-center text-2xl mb-4 shadow-inner">
+                <UserCheck className="size-7 text-white" />
               </div>
-              <div>
-                <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Pimpinan Usaha</span>
-                <h3 className="font-heading font-black text-2xl text-foreground mt-0.5">{COMPANY_INFO.founder}</h3>
-                <p className="text-xs text-muted-foreground mt-1">
-                  Menjamin langsung setiap kesepakatan harga, transparansi timbangan, dan kepastian pembayaran.
-                </p>
-              </div>
+              <h3 className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-1">
+                Pimpinan
+              </h3>
+              <p className="text-xl font-bold text-slate-900 mt-1">{COMPANY_INFO.founder}</p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-background border border-border/80 shadow-md flex items-start gap-4 hover:border-[#6BA4E8]/50 transition-colors sm:col-span-2 lg:col-span-1">
-              <div className="p-3 rounded-xl bg-[#0b0f19] text-[#6BA4E8] border border-border shrink-0">
-                <MapPin className="size-6" />
+            <div className="bg-slate-50 p-6 rounded-xl border border-slate-100 shadow-xs flex flex-col items-center text-center hover:shadow-md transition-shadow sm:col-span-2">
+              <div className="w-14 h-14 bg-slate-900 text-white rounded-lg flex items-center justify-center text-2xl mb-4 shadow-inner">
+                <MapPin className="size-7 text-white" />
               </div>
-              <div>
-                <span className="text-[11px] font-mono text-muted-foreground uppercase tracking-wider">Wilayah Operasional</span>
-                <h3 className="font-heading font-black text-2xl text-foreground mt-0.5">Seluruh Indonesia</h3>
-                <p className="text-xs text-muted-foreground mt-1">
-                  Didukung jaringan logistik laut dan darat untuk evakuasi aset borongan di berbagai pulau.
-                </p>
-              </div>
+              <h3 className="text-slate-500 text-xs font-semibold uppercase tracking-wider mb-1">
+                Cakupan Layanan
+              </h3>
+              <p className="text-xl font-bold text-slate-900 mt-1">Seluruh Indonesia (Nasional)</p>
             </div>
           </div>
         </div>

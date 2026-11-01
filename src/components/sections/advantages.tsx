@@ -1,7 +1,6 @@
 "use client";
 
-import { ShieldCheck, Truck, Scale, BadgeDollarSign, Clock, FileText, ArrowRight } from "lucide-react";
-import { COMPANY_INFO } from "@/data/company";
+import { ShieldCheck, Truck, Scale, BadgeDollarSign, Clock, FileText } from "lucide-react";
 
 export function Advantages() {
   const points = [
@@ -38,17 +37,17 @@ export function Advantages() {
   ];
 
   return (
-    <section id="keunggulan" className="py-24 bg-card/40 relative overflow-hidden border-t border-border/80">
+    <section id="keunggulan" className="py-20 bg-slate-50 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#D33633]/30 bg-[#D33633]/10 px-3.5 py-1 text-xs font-bold text-[#D33633]">
-            <span>KEUNGGULAN UTAMA</span>
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <div className="inline-block px-3 py-1 bg-orange-500/10 text-orange-600 font-semibold rounded-full text-sm mb-4">
+            Keunggulan Kami
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-foreground tracking-tight">
-            Mengapa Klien Memilih CV Harto Jaya Makmur Abadi?
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+            Mengapa Memilih CV HJMA?
           </h2>
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            Standar profesionalisme tinggi yang membedakan kami dari pengepul konvensional pada umumnya.
+          <p className="text-slate-600 text-sm sm:text-base">
+            Standar profesionalisme tinggi yang membedakan kami dari pengepul konvensional.
           </p>
         </div>
 
@@ -56,16 +55,16 @@ export function Advantages() {
           {points.map((p, i) => (
             <div
               key={i}
-              className="p-8 rounded-3xl bg-background border border-border/80 shadow-md hover:border-[#6BA4E8] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+              className="bg-white p-8 rounded-2xl border border-slate-100 shadow-xs hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#0b0f19] text-[#6BA4E8] border border-border flex items-center justify-center mb-6 shadow-sm">
+                <div className="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-600 flex items-center justify-center mb-6">
                   <p.icon className="size-6" />
                 </div>
-                <h3 className="font-heading font-bold text-lg text-foreground mb-2">
+                <h3 className="font-bold text-lg text-slate-900 mb-2">
                   {p.title}
                 </h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">
+                <p className="text-sm text-slate-600 leading-relaxed">
                   {p.desc}
                 </p>
               </div>

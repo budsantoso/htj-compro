@@ -87,14 +87,14 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" className={`dark ${sans.variable} ${heading.variable} ${mono.variable}`}>
+    <html lang="id" className={`scroll-smooth ${sans.variable} ${heading.variable} ${mono.variable}`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="icon" href="/logo-htj.jpg" />
         <link rel="apple-touch-icon" href="/logo-htj.jpg" />
       </head>
-      <body className="min-h-screen bg-[#060911] font-sans text-slate-100 antialiased selection:bg-[#6BA4E8] selection:text-slate-950">
+      <body className="font-sans text-slate-800 bg-slate-50 antialiased selection:bg-orange-500 selection:text-white">
         {children}
       </body>
     </html>

@@ -1,83 +1,108 @@
 "use client";
 
-import { Building2, Landmark, GraduationCap, Globe2, ShieldCheck, ArrowUpRight } from "lucide-react";
-import { CLIENT_PARTNERS, COMPANY_INFO } from "@/data/company";
+import { Building2, Landmark, GraduationCap, Globe2 } from "lucide-react";
+import { CLIENT_PARTNERS } from "@/data/company";
 
-const categoryIcon: Record<string, React.ElementType> = {
-  "Perbankan": Landmark,
-  "Hospitality": Building2,
-  "Pendidikan": GraduationCap,
-  "Institusi / Asing": Globe2,
+// Category icon helper
+const getCategoryIcon = (category: string) => {
+  switch (category) {
+    case "Perbankan":
+      return Landmark;
+    case "Hospitality":
+      return Building2;
+    case "Pendidikan":
+      return GraduationCap;
+    case "Institusi / Asing":
+      return Globe2;
+    default:
+      return Building2;
+  }
 };
 
 export function Partners() {
+  // Row 1: Partners 0 - 4
+  const row1 = CLIENT_PARTNERS.slice(0, 5);
+  // Row 2: Partners 5 - 9
+  const row2 = CLIENT_PARTNERS.slice(5, 10);
+
+  // Duplicate for seamless infinite marquee loop
+  const row1Extended = [...row1, ...row1, ...row1, ...row1];
+  const row2Extended = [...row2, ...row2, ...row2, ...row2];
+
   return (
-    <section id="mitra" className="py-24 bg-card/60 relative overflow-hidden border-y border-border/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16 space-y-4">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#D33633]/30 bg-[#D33633]/10 px-3.5 py-1 text-xs font-bold text-[#D33633]">
-            <span>REKANAN KERJASAMA</span>
+    <section id="mitra" className="py-20 bg-slate-50 border-b border-slate-200 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="text-center max-w-3xl mx-auto">
+          <div className="inline-block px-3 py-1 bg-orange-500/10 text-orange-600 font-semibold rounded-full text-sm mb-4">
+            Kepercayaan
           </div>
-          <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-black text-foreground tracking-tight">
-            Dipercaya Berbagai Institusi & Korporasi Terkemuka
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 tracking-tight">
+            Rekanan Kerjasama
           </h2>
-          <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-            Kepercayaan jangka panjang dari perbankan nasional, jaringan hotel bintang lima,
-            kampus ternama, hingga kedutaan negara asing dalam transaksi pelepasan aset secara resmi.
+          <p className="text-slate-600 text-sm sm:text-base">
+            Dipercaya oleh institusi perbankan, perhotelan, pendidikan, dan lembaga internasional terkemuka.
           </p>
         </div>
+      </div>
 
-        {/* Partners Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {CLIENT_PARTNERS.map((partner, idx) => {
-            const Icon = categoryIcon[partner.category] || Building2;
+      {/* 2-Row Infinite Marquee Carousel Container */}
+      <div className="relative w-full space-y-4">
+        {/* Left & Right Gradient Shadows for seamless fade */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-20 sm:w-32 bg-gradient-to-r from-slate-50 to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-20 sm:w-32 bg-gradient-to-l from-slate-50 to-transparent z-10" />
 
-            return (
-              <div
-                key={idx}
-                className="group p-6 rounded-2xl bg-background border border-border/80 shadow-sm flex items-center justify-between hover:border-[#6BA4E8] hover:shadow-md transition-all duration-300"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center text-[#6BA4E8] group-hover:bg-[#6BA4E8] group-hover:text-slate-950 transition-colors">
-                    <Icon className="size-6" />
+        {/* ROW 1: Slides Left */}
+        <div className="flex overflow-hidden">
+          <div className="animate-marquee-left flex items-center gap-4 py-2">
+            {row1Extended.map((partner, index) => {
+              const IconComp = getCategoryIcon(partner.category);
+              return (
+                <div
+                  key={`row1-${index}`}
+                  className="flex items-center gap-3.5 bg-white border border-slate-200/90 rounded-xl px-5 py-3.5 shadow-2xs hover:shadow-md hover:border-orange-500/60 transition-all duration-300 shrink-0 w-64 sm:w-72"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 shrink-0">
+                    <IconComp className="size-5 text-orange-500" />
                   </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-sm sm:text-base text-foreground group-hover:text-[#6BA4E8] transition-colors">
+                  <div className="min-w-0">
+                    <p className="text-xs sm:text-sm font-bold text-slate-900 truncate">
                       {partner.name}
-                    </h3>
-                    <span className="text-[11px] font-mono text-muted-foreground">
-                      Kategori: {partner.category}
-                    </span>
+                    </p>
+                    <p className="text-[11px] text-slate-500 truncate font-medium">
+                      {partner.category}
+                    </p>
                   </div>
                 </div>
-
-                <ShieldCheck className="size-5 text-[#25D366] opacity-60 group-hover:opacity-100 transition-opacity" />
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
 
-        {/* Callout Notice */}
-        <div className="mt-12 rounded-2xl bg-gradient-to-r from-[#0b0f19] to-slate-900 border border-slate-800 p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="space-y-1 text-center sm:text-left">
-            <h4 className="font-heading font-bold text-base text-white">
-              Ingin Mengadakan Lelang Tertutup atau Scrap Perusahaan?
-            </h4>
-            <p className="text-xs text-slate-400">
-              Tim CV Harto Jaya Makmur Abadi siap hadir untuk survey lokasi, estimasi valuasi, dan proses tender resmi.
-            </p>
+        {/* ROW 2: Slides Right */}
+        <div className="flex overflow-hidden">
+          <div className="animate-marquee-right flex items-center gap-4 py-2">
+            {row2Extended.map((partner, index) => {
+              const IconComp = getCategoryIcon(partner.category);
+              return (
+                <div
+                  key={`row2-${index}`}
+                  className="flex items-center gap-3.5 bg-white border border-slate-200/90 rounded-xl px-5 py-3.5 shadow-2xs hover:shadow-md hover:border-orange-500/60 transition-all duration-300 shrink-0 w-64 sm:w-72"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-slate-100 flex items-center justify-center text-slate-700 shrink-0">
+                    <IconComp className="size-5 text-orange-500" />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-xs sm:text-sm font-bold text-slate-900 truncate">
+                      {partner.name}
+                    </p>
+                    <p className="text-[11px] text-slate-500 truncate font-medium">
+                      {partner.category}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
-
-          <a
-            href={COMPANY_INFO.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-[#6BA4E8] to-[#5185cb] px-6 py-3 text-xs font-bold text-slate-950 shadow-md hover:scale-105 transition-all shrink-0"
-          >
-            <span>Undang Lelang / Survey</span>
-            <ArrowUpRight className="size-4" />
-          </a>
         </div>
       </div>
     </section>
